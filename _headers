@@ -18,7 +18,7 @@
   Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()
   
   # Content Security Policy
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https:; img-src 'self' data: https:; font-src 'self' data:; frame-ancestors 'none'; base-uri 'self'; form-action 'self';
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' https:; img-src 'self' data: https:; font-src 'self' data:; frame-ancestors 'none'; base-uri 'self'; form-action 'self';
   
   # Cache control
   Cache-Control: no-store, no-cache, must-revalidate
@@ -28,7 +28,7 @@
   
   # Cross-origin policies
   Cross-Origin-Opener-Policy: same-origin
-  Cross-Origin-Embedder-Policy: require-corp
+  Cross-Origin-Embedder-Policy: unsafe-none
   Cross-Origin-Resource-Policy: same-origin
 
 # Static assets can be cached
