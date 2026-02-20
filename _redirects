@@ -1,0 +1,4 @@
+# Force HTTPS on any custom domain
+http://cybersafe.cc/* https://cybersafe.cc/:splat 301!
+http://www.cybersafe.cc/* https://cybersafe.cc/:splat 301!
+https://www.cybersafe.cc/* https://cybersafe.cc/:splat 301!
