@@ -1,0 +1,211 @@
+[
+  {
+    "platform":"Acuity Scheduling",
+    "endpoints_tested":5,
+    "secure":5,
+    "vulnerable":0,
+    "partial":0,
+    "unknown":0,
+    "grade":"A",
+    "auth_method":"OAuth2 / Basic Auth",
+    "notes":"Industry-standard auth"
+  },
+  {
+    "platform":"Bookeo",
+    "endpoints_tested":5,
+    "secure":5,
+    "vulnerable":0,
+    "partial":0,
+    "unknown":0,
+    "grade":"A",
+    "auth_method":"API key (header or param)",
+    "notes":"Clear error messages without data leakage"
+  },
+  {
+    "platform":"ClassPass",
+    "endpoints_tested":5,
+    "secure":5,
+    "vulnerable":0,
+    "partial":0,
+    "unknown":0,
+    "grade":"A",
+    "auth_method":"Cloudflare + API auth",
+    "notes":"Strong bot protection"
+  },
+  {
+    "platform":"ClubReady",
+    "endpoints_tested":10,
+    "secure":10,
+    "vulnerable":0,
+    "partial":0,
+    "unknown":0,
+    "grade":"A",
+    "auth_method":"API key + store-level auth",
+    "notes":"Proper tenant isolation"
+  },
+  {
+    "platform":"Fitogram",
+    "endpoints_tested":5,
+    "secure":4,
+    "vulnerable":0,
+    "partial":0,
+    "unknown":1,
+    "grade":"A",
+    "auth_method":"API auth",
+    "notes":"Most endpoints secured"
+  },
+  {
+    "platform":"Glofox",
+    "endpoints_tested":10,
+    "secure":10,
+    "vulnerable":0,
+    "partial":0,
+    "unknown":0,
+    "grade":"A",
+    "auth_method":"x-glofox-branch-id + x-api-key + x-glofox-api-token",
+    "notes":"Enterprise-grade multi-layer auth"
+  },
+  {
+    "platform":"Gymdesk",
+    "endpoints_tested":5,
+    "secure":5,
+    "vulnerable":0,
+    "partial":0,
+    "unknown":0,
+    "grade":"A",
+    "auth_method":"Bearer token",
+    "notes":"Standard OAuth2 bearer"
+  },
+  {
+    "platform":"Pike13",
+    "endpoints_tested":5,
+    "secure":5,
+    "vulnerable":0,
+    "partial":0,
+    "unknown":0,
+    "grade":"A",
+    "auth_method":"Client ID + Access Token",
+    "notes":"Clear auth requirements"
+  },
+  {
+    "platform":"PushPress",
+    "endpoints_tested":10,
+    "secure":7,
+    "vulnerable":0,
+    "partial":0,
+    "unknown":3,
+    "grade":"A",
+    "auth_method":"API auth",
+    "notes":"Most endpoints secured"
+  },
+  {
+    "platform":"SportsEngine",
+    "endpoints_tested":5,
+    "secure":5,
+    "vulnerable":0,
+    "partial":0,
+    "unknown":0,
+    "grade":"A",
+    "auth_method":"API auth",
+    "notes":"Properly secured"
+  },
+  {
+    "platform":"Vagaro",
+    "endpoints_tested":10,
+    "secure":10,
+    "vulnerable":0,
+    "partial":0,
+    "unknown":0,
+    "grade":"A",
+    "auth_method":"WAF (Incapsula) + API auth",
+    "notes":"Strong perimeter security with audit trail"
+  },
+  {
+    "platform":"Virtuagym",
+    "endpoints_tested":5,
+    "secure":5,
+    "vulnerable":0,
+    "partial":0,
+    "unknown":0,
+    "grade":"A",
+    "auth_method":"API auth",
+    "notes":"Properly secured"
+  },
+  {
+    "platform":"WellnessLiving",
+    "endpoints_tested":10,
+    "secure":10,
+    "vulnerable":0,
+    "partial":0,
+    "unknown":0,
+    "grade":"A",
+    "auth_method":"WAF (Incapsula) + API auth",
+    "notes":"Defence-in-depth with WAF"
+  },
+  {
+    "platform":"Wodify",
+    "endpoints_tested":10,
+    "secure":10,
+    "vulnerable":0,
+    "partial":0,
+    "unknown":0,
+    "grade":"A",
+    "auth_method":"Bearer token",
+    "notes":"Clear auth requirements, no data exposure"
+  },
+  {
+    "platform":"MindBody",
+    "endpoints_tested":20,
+    "secure":8,
+    "vulnerable":0,
+    "partial":9,
+    "unknown":3,
+    "grade":"B",
+    "auth_method":"API Key + Site ID + User Token",
+    "notes":"API properly secured; widgets expose limited public data"
+  },
+  {
+    "platform":"SimplyBook.me",
+    "endpoints_tested":5,
+    "secure":2,
+    "vulnerable":0,
+    "partial":3,
+    "unknown":0,
+    "grade":"B",
+    "auth_method":"V2 requires auth; V1 legacy exposed",
+    "notes":"Info disclosure on legacy API"
+  },
+  {
+    "platform":"MindBody Widgets",
+    "endpoints_tested":10,
+    "secure":1,
+    "vulnerable":2,
+    "partial":7,
+    "unknown":0,
+    "grade":"C",
+    "auth_method":"None (public)",
+    "notes":"Widget IDs enumerable, expose business/instructor names"
+  },
+  {
+    "platform":"Momence",
+    "endpoints_tested":15,
+    "secure":2,
+    "vulnerable":5,
+    "partial":0,
+    "unknown":8,
+    "grade":"F",
+    "auth_method":"None required",
+    "notes":"IDOR vulnerability - exposes competitor business data via ID enumeration"
+  },
+  {
+    "platform":"Eversports",
+    "endpoints_tested":5,
+    "secure":0,
+    "vulnerable":0,
+    "partial":0,
+    "unknown":5,
+    "grade":"N/A",
+    "auth_method":"Unknown",
+    "notes":"All endpoints returned unknown status"
+  }
+]

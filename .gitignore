@@ -4,5 +4,5 @@ __pycache__/
 .env
 .DS_Store
 *.db
-data/
+# data/  # intentionally tracked — research data
 logs/

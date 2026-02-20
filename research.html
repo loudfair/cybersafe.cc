@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research — cybersafe.cc</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    :root {
+      --bg:#000; --bg-card:linear-gradient(145deg,rgba(255,255,255,.04) 0%,rgba(255,255,255,.01) 50%,rgba(0,0,0,.2) 100%);
+      --bg-surface:linear-gradient(180deg,rgba(255,255,255,.03) 0%,rgba(255,255,255,.01) 100%);
+      --border:rgba(255,255,255,.08); --border-subtle:rgba(255,255,255,.05);
+      --text:#f5f5f7; --text-secondary:rgba(255,255,255,.72); --text-muted:rgba(255,255,255,.48); --text-faint:rgba(255,255,255,.32);
+      --green:#30d158; --green-dim:rgba(48,209,88,.15); --blue:#2997ff; --red:#ff453a; --red-dim:rgba(255,69,58,.15);
+      --orange:#ff9f0a; --orange-dim:rgba(255,159,10,.15); --purple:#bf5af2; --teal:#5ac8fa;
+      --font:-apple-system,BlinkMacSystemFont,"SF Pro Display",system-ui,sans-serif;
+      --mono:"SF Mono",ui-monospace,monospace; --ease:cubic-bezier(.4,0,.2,1);
+    }
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font);background:var(--bg);background-image:radial-gradient(ellipse at 50% 0%,rgba(48,209,88,.04) 0%,transparent 60%);color:var(--text);-webkit-font-smoothing:antialiased;min-height:100vh;opacity:0;animation:fadeIn .5s var(--ease) forwards}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;background:linear-gradient(180deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.85) 100%);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border-subtle);display:flex;align-items:center;padding:0 24px}
+    .nav-logo{font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--text-secondary);display:flex;align-items:center;gap:8px;text-decoration:none}
+    .nav-logo .dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#30d158,#28a745);animation:pulse 2s ease infinite}
+    .nav-tabs{display:flex;align-items:center;gap:2px;margin-left:40px}
+    .nav-tab{font-size:13px;color:var(--text-muted);cursor:pointer;padding:6px 14px;border-radius:6px;transition:all .15s;border:none;background:none;font-family:var(--font);text-decoration:none}
+    .nav-tab:hover{color:var(--text);background:rgba(255,255,255,.05)}
+    .nav-tab.active{color:var(--text);background:rgba(255,255,255,.08)}
+    .nav-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+    .nav-badge{font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px;background:rgba(255,69,58,.15);color:var(--red);border:1px solid rgba(255,69,58,.25)}
+
+    main{max-width:1100px;margin:0 auto;padding:80px 24px 80px}
+
+    .page{display:none}.page.active{display:block}
+
+    /* HERO */
+    .hero{text-align:center;margin-bottom:56px;opacity:0;animation:fadeUp .6s var(--ease) .2s forwards}
+    .hero-eyebrow{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+    .hero-title{font-size:52px;font-weight:700;letter-spacing:-.04em;line-height:1.05;margin-bottom:14px;background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,.72) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero-sub{font-size:18px;color:var(--text-muted);max-width:560px;margin:0 auto;font-weight:300;letter-spacing:-.01em}
+
+    /* STATS */
+    .stats-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:40px;opacity:0;animation:fadeUp .6s var(--ease) .3s forwards}
+    .stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:18px;transition:border-color .2s}
+    .stat-card:hover{border-color:rgba(255,255,255,.14)}
+    .stat-label{font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-faint);margin-bottom:8px}
+    .stat-value{font-size:26px;font-weight:700;letter-spacing:-.03em}
+    .stat-sub{font-size:11px;color:var(--text-muted);margin-top:3px}
+    .c-green{color:var(--green)}.c-red{color:var(--red)}.c-orange{color:var(--orange)}.c-blue{color:var(--blue)}.c-purple{color:var(--purple)}
+
+    /* TABS */
+    .tab-bar{display:flex;gap:0;border-bottom:1px solid var(--border-subtle);margin-bottom:28px}
+    .tab-btn{font-size:13px;font-weight:500;color:var(--text-muted);padding:10px 18px;cursor:pointer;border:none;background:none;font-family:var(--font);border-bottom:2px solid transparent;transition:all .15s;margin-bottom:-1px}
+    .tab-btn:hover{color:var(--text-secondary)}
+    .tab-btn.active{color:var(--text);border-bottom-color:var(--red)}
+    .tab-content{display:none}.tab-content.active{display:block}
+
+    /* PANEL */
+    .panel{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:24px}
+    .panel-header{padding:14px 20px;border-bottom:1px solid var(--border-subtle);background:var(--bg-surface);display:flex;align-items:center;gap:10px}
+    .panel-title{font-size:13px;font-weight:600;color:var(--text-secondary)}
+    .panel-count{font-size:11px;font-weight:600;padding:2px 8px;border-radius:4px;background:rgba(255,255,255,.07);color:var(--text-muted)}
+
+    /* GRADE BADGES */
+    .grade{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;font-size:14px;font-weight:800;font-family:var(--mono)}
+    .grade-A{background:rgba(48,209,88,.15);color:var(--green);border:1px solid rgba(48,209,88,.25)}
+    .grade-B{background:rgba(255,159,10,.15);color:var(--orange);border:1px solid rgba(255,159,10,.25)}
+    .grade-C{background:rgba(255,159,10,.12);color:#ffcc00;border:1px solid rgba(255,204,0,.2)}
+    .grade-F{background:rgba(255,69,58,.18);color:var(--red);border:1px solid rgba(255,69,58,.3)}
+    .grade-NA{background:rgba(255,255,255,.06);color:var(--text-faint);border:1px solid var(--border)}
+
+    /* PLATFORM TABLE */
+    .platform-table{width:100%;border-collapse:collapse}
+    .platform-table th{font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-faint);text-align:left;padding:10px 16px;border-bottom:1px solid var(--border-subtle)}
+    .platform-table td{padding:12px 16px;border-bottom:1px solid var(--border-subtle);font-size:13px;color:var(--text-secondary);vertical-align:middle}
+    .platform-table tr:last-child td{border-bottom:none}
+    .platform-table tr:hover td{background:rgba(255,255,255,.02)}
+    .platform-name{font-weight:600;color:var(--text)}
+    .bar-wrap{display:flex;gap:3px;align-items:center}
+    .bar{height:6px;border-radius:3px;min-width:2px}
+    .bar-secure{background:var(--green)}
+    .bar-vuln{background:var(--red)}
+    .bar-partial{background:var(--orange)}
+    .bar-unknown{background:rgba(255,255,255,.15)}
+    .auth-tag{font-family:var(--mono);font-size:10px;color:var(--text-faint);background:rgba(255,255,255,.04);padding:2px 7px;border-radius:4px;border:1px solid var(--border)}
+    .critical-row td{background:rgba(255,69,58,.04)!important}
+
+    /* HOST BROWSER */
+    .search-row{display:flex;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border-subtle);align-items:center;flex-wrap:wrap}
+    .search-input{font-family:var(--mono);font-size:13px;padding:8px 12px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--text);outline:none;flex:1;min-width:200px;transition:border-color .2s}
+    .search-input:focus{border-color:rgba(255,69,58,.4)}
+    .search-input::placeholder{color:var(--text-faint)}
+    .filter-select{font-family:var(--font);font-size:12px;padding:8px 10px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--text);outline:none;cursor:pointer}
+    .host-table{width:100%;border-collapse:collapse}
+    .host-table th{font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-faint);text-align:left;padding:8px 14px;background:rgba(0,0,0,.3)}
+    .host-table td{padding:9px 14px;border-bottom:1px solid rgba(255,255,255,.03);font-size:12px;color:var(--text-secondary);font-family:var(--mono)}
+    .host-table tr:hover td{background:rgba(255,255,255,.02)}
+    .host-name{font-weight:600;color:var(--text);font-family:var(--font);font-size:13px}
+    .host-url a{color:var(--blue);text-decoration:none;font-size:11px}
+    .host-url a:hover{text-decoration:underline}
+    .country-flag{font-size:14px}
+    .industry-tag{font-size:10px;padding:2px 6px;border-radius:4px;background:rgba(41,151,255,.1);color:var(--blue);border:1px solid rgba(41,151,255,.15)}
+    .pagination{display:flex;align-items:center;gap:8px;padding:12px 16px;border-top:1px solid var(--border-subtle);justify-content:space-between}
+    .page-info{font-size:12px;color:var(--text-muted)}
+    .page-btns{display:flex;gap:4px}
+    .page-btn{font-size:12px;padding:5px 12px;border-radius:6px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--text-secondary);cursor:pointer;font-family:var(--font);transition:all .15s}
+    .page-btn:hover{background:rgba(255,255,255,.08);color:var(--text)}
+    .page-btn:disabled{opacity:.3;cursor:not-allowed}
+    .page-btn.active{background:rgba(255,69,58,.15);color:var(--red);border-color:rgba(255,69,58,.3)}
+    .loading-state{text-align:center;padding:48px;color:var(--text-faint);font-size:13px}
+    .spinner{width:20px;height:20px;border:2px solid rgba(255,255,255,.1);border-top-color:var(--red);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 12px}
+
+    /* REPORTS */
+    .report-nav{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+    .report-btn{font-size:12px;padding:7px 16px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--text-muted);cursor:pointer;font-family:var(--font);transition:all .15s}
+    .report-btn:hover{background:rgba(255,255,255,.08);color:var(--text)}
+    .report-btn.active{background:rgba(255,69,58,.15);color:var(--red);border-color:rgba(255,69,58,.3)}
+    .report-body{padding:28px 32px;line-height:1.8;color:var(--text-secondary);max-height:700px;overflow-y:auto}
+    .report-body h1{font-size:22px;font-weight:700;color:var(--text);margin-bottom:8px;margin-top:0;letter-spacing:-.02em}
+    .report-body h2{font-size:17px;font-weight:600;color:var(--text);margin:28px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--border-subtle)}
+    .report-body h3{font-size:14px;font-weight:600;color:var(--text-secondary);margin:20px 0 8px}
+    .report-body h4{font-size:13px;font-weight:600;color:var(--text-muted);margin:16px 0 6px}
+    .report-body p{margin-bottom:12px;font-size:14px}
+    .report-body strong{color:var(--text);font-weight:600}
+    .report-body em{color:var(--text-muted)}
+    .report-body code{font-family:var(--mono);font-size:12px;background:rgba(255,255,255,.08);padding:2px 6px;border-radius:4px;color:var(--teal)}
+    .report-body pre{background:rgba(0,0,0,.5);border:1px solid var(--border-subtle);border-radius:10px;padding:16px;margin:14px 0;overflow-x:auto}
+    .report-body pre code{background:none;padding:0;font-size:12px;color:var(--text-secondary)}
+    .report-body table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px}
+    .report-body table th{text-align:left;padding:8px 12px;border-bottom:1px solid var(--border);font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--text-faint)}
+    .report-body table td{padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--text-secondary)}
+    .report-body table tr:hover td{background:rgba(255,255,255,.02)}
+    .report-body ul,.report-body ol{padding-left:20px;margin-bottom:12px}
+    .report-body li{font-size:14px;margin-bottom:6px}
+    .report-body hr{border:none;border-top:1px solid var(--border-subtle);margin:24px 0}
+    .report-body blockquote{border-left:3px solid var(--red);padding:10px 16px;background:rgba(255,69,58,.06);border-radius:0 8px 8px 0;margin:14px 0;font-style:italic;color:var(--text-muted)}
+    .report-meta{padding:14px 20px;border-bottom:1px solid var(--border-subtle);background:rgba(0,0,0,.3);display:flex;gap:20px;flex-wrap:wrap}
+    .report-meta-item{font-size:11px;color:var(--text-faint)}.report-meta-item span{color:var(--text-muted);font-weight:600}
+
+    /* CHART */
+    .chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+    .chart-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:20px}
+    .chart-title{font-size:12px;font-weight:600;color:var(--text-muted);margin-bottom:16px;letter-spacing:.02em;text-transform:uppercase}
+    .chart-wrap{position:relative;height:220px}
+
+    /* VULN CALLOUT */
+    .vuln-card{background:rgba(255,69,58,.06);border:1px solid rgba(255,69,58,.2);border-radius:14px;padding:20px 24px;margin-bottom:24px}
+    .vuln-title{font-size:13px;font-weight:700;color:var(--red);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+    .vuln-body{font-size:13px;color:var(--text-secondary);line-height:1.6}
+    .vuln-body code{font-family:var(--mono);font-size:11px;background:rgba(255,69,58,.1);padding:2px 6px;border-radius:4px;color:var(--red)}
+
+    ::-webkit-scrollbar{width:5px;height:5px}
+    ::-webkit-scrollbar-track{background:transparent}
+    ::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:3px}
+    ::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,.2)}
+
+    @media(max-width:700px){
+      .stats-row{grid-template-columns:repeat(2,1fr)}
+      .hero-title{font-size:34px}
+      .chart-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">
+    <div class="dot"></div>
+    cybersafe<span style="color:var(--text-faint)">.cc</span>
+  </a>
+  <div class="nav-tabs">
+    <a class="nav-tab" href="/">Explorer</a>
+    <a class="nav-tab active" href="/research.html">Research</a>
+  </div>
+  <div class="nav-right">
+    <div class="nav-badge">⚠ Active Vulnerability</div>
+  </div>
+</nav>
+
+<main>
+  <div class="hero">
+    <div class="hero-eyebrow">Security Research</div>
+    <h1 class="hero-title">Fitness Platform Analysis</h1>
+    <p class="hero-sub">180 API endpoints tested across 18 platforms. One critical IDOR vulnerability confirmed. 8,983 hosts exposed.</p>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-label">Hosts Exposed</div>
+      <div class="stat-value c-red">8,983</div>
+      <div class="stat-sub">via Momence IDOR</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Countries</div>
+      <div class="stat-value c-blue">117</div>
+      <div class="stat-sub">worldwide</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Platforms Tested</div>
+      <div class="stat-value c-green">18</div>
+      <div class="stat-sub">180 endpoints total</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Grade A</div>
+      <div class="stat-value c-green">14</div>
+      <div class="stat-sub">secure platforms</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Grade F</div>
+      <div class="stat-value c-red">1</div>
+      <div class="stat-sub">Momence — IDOR</div>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="showTab('overview',this)">Overview</button>
+    <button class="tab-btn" onclick="showTab('platforms',this)">Platform Ratings</button>
+    <button class="tab-btn" onclick="showTab('hosts',this)">Host Database</button>
+    <button class="tab-btn" onclick="showTab('reports',this)">Reports</button>
+  </div>
+
+  <!-- OVERVIEW TAB -->
+  <div class="tab-content active" id="tab-overview">
+    <div class="vuln-card">
+      <div class="vuln-title">⚠ Critical: Momence IDOR Vulnerability</div>
+      <div class="vuln-body">
+        The endpoint <code>https://readonly-api.momence.com/host-plugins/host/{id}/host-schedule</code> requires no authentication and returns full business data for any sequential ID. IDs 1–130,000 were enumerated, yielding 8,983 confirmed hosts across 117 countries. This is a textbook Insecure Direct Object Reference (IDOR) — any actor can harvest the entire customer database.
+      </div>
+    </div>
+    <div class="chart-grid">
+      <div class="chart-card">
+        <div class="chart-title">Grade Distribution</div>
+        <div class="chart-wrap"><canvas id="gradeChart"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Top Countries (Momence Hosts)</div>
+        <div class="chart-wrap"><canvas id="countryChart"></canvas></div>
+      </div>
+    </div>
+    <div class="chart-grid">
+      <div class="chart-card">
+        <div class="chart-title">Industry Breakdown</div>
+        <div class="chart-wrap"><canvas id="industryChart"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Endpoint Security Status</div>
+        <div class="chart-wrap"><canvas id="securityChart"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLATFORMS TAB -->
+  <div class="tab-content" id="tab-platforms">
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Security Ratings — 18 Platforms</span>
+        <span class="panel-count" id="platforms-count">Loading...</span>
+      </div>
+      <div style="overflow-x:auto">
+        <table class="platform-table" id="platform-table">
+          <thead>
+            <tr>
+              <th>Platform</th>
+              <th>Grade</th>
+              <th>Endpoints</th>
+              <th>Results</th>
+              <th>Auth Method</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody id="platform-tbody">
+            <tr><td colspan="6" style="text-align:center;padding:32px;color:var(--text-faint)">Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOSTS TAB -->
+  <div class="tab-content" id="tab-hosts">
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Momence Host Database</span>
+        <span class="panel-count" id="host-count">Loading...</span>
+      </div>
+      <div class="search-row">
+        <input class="search-input" id="host-search" placeholder="Search by name, industry, country..." oninput="filterHosts()" />
+        <select class="filter-select" id="country-filter" onchange="filterHosts()">
+          <option value="">All Countries</option>
+        </select>
+        <select class="filter-select" id="industry-filter" onchange="filterHosts()">
+          <option value="">All Industries</option>
+        </select>
+      </div>
+      <div id="host-table-wrap">
+        <div class="loading-state"><div class="spinner"></div>Loading 8,983 hosts...</div>
+      </div>
+      <div class="pagination" id="pagination" style="display:none">
+        <span class="page-info" id="page-info"></span>
+        <div class="page-btns" id="page-btns"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REPORTS TAB -->
+  <div class="tab-content" id="tab-reports">
+    <div class="report-nav">
+      <button class="report-btn active" onclick="showReport('mindbody',this)">Mindbody Security Assessment</button>
+      <button class="report-btn" onclick="showReport('fitness',this)">Fitness Platform Analysis</button>
+    </div>
+    <div class="panel">
+      <div class="report-meta" id="report-meta"></div>
+      <div class="report-body" id="report-body"></div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+// ── DATA ─────────────────────────────────────────────
+let allHosts = [], filteredHosts = [], allRatings = [], allCountries = [], allIndustries = [];
+let currentPage = 1;
+const PAGE_SIZE = 50;
+let hostsLoaded = false;
+
+const REPORTS = {
+  mindbody: {
+    meta: { date: '23 January 2026', author: 'Manus AI', status: 'Final', rating: '2/10' },
+    file: '/data/mindbody_security_assessment.md'
+  },
+  fitness: {
+    meta: { date: '04 February 2026', platforms: '18', endpoints: '180', agents: '90' },
+    file: '/data/fitness_platform_security_analysis.md'
+  }
+};
+
+// ── TABS ──────────────────────────────────────────────
+function showTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  if (btn) btn.classList.add('active');
+  if (name === 'hosts' && !hostsLoaded) loadHosts();
+  if (name === 'reports') showReport('mindbody', document.querySelector('.report-btn'));
+}
+
+// ── LOAD DATA ─────────────────────────────────────────
+async function loadAll() {
+  const [ratings, countries, industries] = await Promise.all([
+    fetch('/data/ratings.json').then(r => r.json()),
+    fetch('/data/countries.json').then(r => r.json()),
+    fetch('/data/industries.json').then(r => r.json()),
+  ]);
+  allRatings = ratings;
+  allCountries = countries;
+  allIndustries = industries;
+  renderPlatforms();
+  renderCharts();
+}
+
+async function loadHosts() {
+  hostsLoaded = true;
+  document.getElementById('host-table-wrap').innerHTML = '<div class="loading-state"><div class="spinner"></div>Loading 8,983 hosts...</div>';
+  const hosts = await fetch('/data/hosts.json').then(r => r.json());
+  allHosts = hosts;
+  filteredHosts = [...hosts];
+
+  // Populate filters
+  const cf = document.getElementById('country-filter');
+  allCountries.slice(0, 40).forEach(c => {
+    const o = document.createElement('option');
+    o.value = c.country_code; o.textContent = `${countryFlag(c.country_code)} ${c.country_code} (${c.count})`;
+    cf.appendChild(o);
+  });
+
+  const inf = document.getElementById('industry-filter');
+  allIndustries.forEach(i => {
+    const o = document.createElement('option');
+    o.value = i.industry; o.textContent = `${i.industry} (${i.count})`;
+    inf.appendChild(o);
+  });
+
+  document.getElementById('host-count').textContent = hosts.length.toLocaleString() + ' hosts';
+  renderHostTable();
+}
+
+// ── PLATFORMS ─────────────────────────────────────────
+function renderPlatforms() {
+  const tbody = document.getElementById('platform-tbody');
+  document.getElementById('platforms-count').textContent = allRatings.length + ' platforms';
+  tbody.innerHTML = allRatings.map(r => {
+    const total = r.endpoints_tested || 1;
+    const sw = Math.max(2, Math.round((r.secure / total) * 80));
+    const vw = Math.max(0, Math.round(((r.vulnerable||0) / total) * 80));
+    const pw = Math.max(0, Math.round(((r.partial||0) / total) * 80));
+    const uw = Math.max(0, Math.round(((r.unknown||0) / total) * 80));
+    const isCritical = r.grade === 'F';
+    return `<tr class="${isCritical ? 'critical-row' : ''}">
+      <td><span class="platform-name">${r.platform}</span></td>
+      <td><span class="grade grade-${r.grade === 'N/A' ? 'NA' : r.grade}">${r.grade === 'N/A' ? '?' : r.grade}</span></td>
+      <td style="color:var(--text-muted);font-family:var(--mono);font-size:12px">${r.endpoints_tested}</td>
+      <td>
+        <div class="bar-wrap">
+          ${sw ? `<div class="bar bar-secure" style="width:${sw}px" title="Secure: ${r.secure}"></div>` : ''}
+          ${vw ? `<div class="bar bar-vuln" style="width:${vw}px" title="Vulnerable: ${r.vulnerable}"></div>` : ''}
+          ${pw ? `<div class="bar bar-partial" style="width:${pw}px" title="Partial: ${r.partial}"></div>` : ''}
+          ${uw ? `<div class="bar bar-unknown" style="width:${uw}px" title="Unknown: ${r.unknown}"></div>` : ''}
+          <span style="font-size:10px;color:var(--text-faint);font-family:var(--mono);margin-left:4px">${r.secure}/${r.endpoints_tested}</span>
+        </div>
+      </td>
+      <td><span class="auth-tag">${(r.auth_method||'').substring(0,35)}</span></td>
+      <td style="font-size:12px;color:var(--text-faint);max-width:220px">${r.notes||''}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ── HOSTS ─────────────────────────────────────────────
+function filterHosts() {
+  const q = document.getElementById('host-search').value.toLowerCase();
+  const country = document.getElementById('country-filter').value;
+  const industry = document.getElementById('industry-filter').value;
+  filteredHosts = allHosts.filter(h => {
+    if (country && h.country_code !== country) return false;
+    if (industry && h.industry !== industry) return false;
+    if (q && !(`${h.name} ${h.industry} ${h.country_code} ${h.email||''}`).toLowerCase().includes(q)) return false;
+    return true;
+  });
+  currentPage = 1;
+  renderHostTable();
+}
+
+function renderHostTable() {
+  const start = (currentPage - 1) * PAGE_SIZE;
+  const end = start + PAGE_SIZE;
+  const page = filteredHosts.slice(start, end);
+  const totalPages = Math.ceil(filteredHosts.length / PAGE_SIZE);
+
+  document.getElementById('host-table-wrap').innerHTML = `
+    <div style="overflow-x:auto">
+    <table class="host-table">
+      <thead><tr>
+        <th>ID</th><th>Name</th><th>Industry</th><th>Country</th>
+        <th>Email</th><th>Website</th><th>Teachers</th><th>Joined</th>
+      </tr></thead>
+      <tbody>
+        ${page.map(h => `<tr>
+          <td style="color:var(--text-faint)">${h.host_id}</td>
+          <td><span class="host-name">${esc(h.name)}</span></td>
+          <td><span class="industry-tag">${h.industry||'—'}</span></td>
+          <td><span class="country-flag">${countryFlag(h.country_code)}</span> ${h.country_code||'—'}</td>
+          <td style="font-size:11px;color:var(--text-faint)">${h.email ? `<span style="color:var(--text-muted)">${esc(h.email)}</span>` : '—'}</td>
+          <td class="host-url">${h.website_url ? `<a href="${esc(h.website_url)}" target="_blank" rel="noopener">${esc(h.website_url).substring(0,30)}…</a>` : '—'}</td>
+          <td style="text-align:center;color:var(--text-muted)">${h.teacher_count||0}</td>
+          <td style="font-size:11px;color:var(--text-faint)">${h.created_at ? h.created_at.substring(0,10) : '—'}</td>
+        </tr>`).join('')}
+      </tbody>
+    </table>
+    </div>`;
+
+  // Pagination
+  document.getElementById('pagination').style.display = 'flex';
+  document.getElementById('page-info').textContent =
+    `${(start+1).toLocaleString()}–${Math.min(end,filteredHosts.length).toLocaleString()} of ${filteredHosts.length.toLocaleString()} hosts`;
+
+  const btns = document.getElementById('page-btns');
+  btns.innerHTML = '';
+  const addBtn = (label, page, disabled, active) => {
+    const b = document.createElement('button');
+    b.className = 'page-btn' + (active ? ' active' : '');
+    b.textContent = label;
+    b.disabled = disabled;
+    b.onclick = () => { currentPage = page; renderHostTable(); };
+    btns.appendChild(b);
+  };
+  addBtn('←', currentPage - 1, currentPage === 1, false);
+  const range = pageRange(currentPage, totalPages);
+  range.forEach(p => {
+    if (p === '…') { const s = document.createElement('span'); s.textContent='…'; s.style.cssText='padding:5px 4px;color:var(--text-faint);font-size:12px'; btns.appendChild(s); }
+    else addBtn(p, p, false, p === currentPage);
+  });
+  addBtn('→', currentPage + 1, currentPage >= totalPages, false);
+}
+
+function pageRange(cur, total) {
+  if (total <= 7) return Array.from({length:total},(_,i)=>i+1);
+  const r = [];
+  if (cur <= 4) { for(let i=1;i<=5;i++) r.push(i); r.push('…'); r.push(total); }
+  else if (cur >= total-3) { r.push(1); r.push('…'); for(let i=total-4;i<=total;i++) r.push(i); }
+  else { r.push(1); r.push('…'); for(let i=cur-1;i<=cur+1;i++) r.push(i); r.push('…'); r.push(total); }
+  return r;
+}
+
+// ── REPORTS ───────────────────────────────────────────
+async function showReport(name, btn) {
+  document.querySelectorAll('.report-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  const r = REPORTS[name];
+  const meta = r.meta;
+  document.getElementById('report-meta').innerHTML = Object.entries(meta)
+    .map(([k,v]) => `<div class="report-meta-item">${k}: <span>${v}</span></div>`).join('');
+  document.getElementById('report-body').innerHTML = '<div class="loading-state"><div class="spinner"></div>Loading report...</div>';
+  const md = await fetch(r.file).then(r => r.text());
+  document.getElementById('report-body').innerHTML = mdToHtml(md);
+}
+
+function mdToHtml(md) {
+  return md
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/```[\w]*\n([\s\S]*?)```/g, (_,c) => `<pre><code>${c}</code></pre>`)
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/^#### (.+)$/gm, '<h4>$1</h4>')
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+    .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+    .replace(/^\> (.+)$/gm, '<blockquote>$1</blockquote>')
+    .replace(/^---$/gm, '<hr>')
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener" style="color:var(--blue)">$1</a>')
+    .replace(/^\| (.+)$/gm, (_, row) => {
+      const cells = row.split(' | ');
+      return `<tr>${cells.map(c => `<td>${c.replace(/:---.*|---/g,'')}</td>`).join('')}</tr>`;
+    })
+    .replace(/(<tr>.*<\/tr>\n)+/g, m => {
+      const rows = m.trim().split('\n');
+      const head = rows[0].replace(/<td>/g,'<th>').replace(/<\/td>/g,'</th>');
+      const body = rows.slice(2).join('\n');
+      return `<table><thead>${head}</thead><tbody>${body}</tbody></table>`;
+    })
+    .replace(/^\d+\.\s+(.+)$/gm, '<li>$1</li>').replace(/(<li>.*<\/li>\n)+/g, m => `<ol>${m}</ol>`)
+    .replace(/^[-*]\s+(.+)$/gm, '<li>$1</li>').replace(/(<li>.*<\/li>\n)+/g, m => `<ul>${m}</ul>`)
+    .replace(/\n\n/g, '</p><p>').replace(/^(?!<[huptboal])/gm, '')
+    .replace(/(<\/h[1-4]>|<\/pre>|<\/table>|<\/[uo]l>|<hr>)<\/p>/g, '$1')
+    .replace(/<p>(<h[1-4]>|<pre>|<table>|<[uo]l>|<hr>)/g, '$1');
+}
+
+// ── CHARTS ────────────────────────────────────────────
+function renderCharts() {
+  const cfg = {
+    plugins: { legend: { labels: { color: 'rgba(255,255,255,.48)', font: { size: 11 } } } },
+    scales: { x: { ticks: { color: 'rgba(255,255,255,.4)', font:{size:10} }, grid: { color: 'rgba(255,255,255,.04)' } },
+               y: { ticks: { color: 'rgba(255,255,255,.4)', font:{size:10} }, grid: { color: 'rgba(255,255,255,.04)' } } }
+  };
+
+  // Grade distribution
+  const grades = {A:0, B:0, C:0, F:0, 'N/A':0};
+  allRatings.forEach(r => grades[r.grade] = (grades[r.grade]||0)+1);
+  new Chart(document.getElementById('gradeChart'), {
+    type: 'doughnut',
+    data: { labels: Object.keys(grades), datasets: [{ data: Object.values(grades),
+      backgroundColor: ['rgba(48,209,88,.7)','rgba(255,159,10,.7)','rgba(255,204,0,.7)','rgba(255,69,58,.7)','rgba(255,255,255,.15)'],
+      borderColor: 'rgba(0,0,0,.5)', borderWidth: 2 }] },
+    options: { plugins: { legend: { labels: { color: 'rgba(255,255,255,.48)', font:{size:11} } } }, cutout:'65%' }
+  });
+
+  // Top countries
+  const top10 = allCountries.filter(c => c.country_code).slice(0,10);
+  new Chart(document.getElementById('countryChart'), {
+    type: 'bar',
+    data: { labels: top10.map(c => c.country_code),
+      datasets: [{ data: top10.map(c => c.count), backgroundColor: 'rgba(41,151,255,.6)', borderColor: 'rgba(41,151,255,.9)', borderWidth:1 }] },
+    options: { ...cfg, plugins: { legend: { display:false } } }
+  });
+
+  // Industries
+  const top8ind = allIndustries.slice(0,8);
+  new Chart(document.getElementById('industryChart'), {
+    type: 'bar',
+    data: { labels: top8ind.map(i => i.industry),
+      datasets: [{ data: top8ind.map(i => i.count), backgroundColor: 'rgba(191,90,242,.6)', borderColor: 'rgba(191,90,242,.9)', borderWidth:1 }] },
+    options: { ...cfg, plugins: { legend: { display:false } }, indexAxis:'y' }
+  });
+
+  // Security breakdown
+  let secure=0, vuln=0, partial=0, unknown=0;
+  allRatings.forEach(r => { secure+=r.secure||0; vuln+=r.vulnerable||0; partial+=r.partial||0; unknown+=r.unknown||0; });
+  new Chart(document.getElementById('securityChart'), {
+    type: 'doughnut',
+    data: { labels: ['Secure','Vulnerable','Partial','Unknown'],
+      datasets: [{ data: [secure, vuln, partial, unknown],
+        backgroundColor: ['rgba(48,209,88,.7)','rgba(255,69,58,.7)','rgba(255,159,10,.7)','rgba(255,255,255,.15)'],
+        borderColor: 'rgba(0,0,0,.5)', borderWidth:2 }] },
+    options: { plugins: { legend: { labels: { color:'rgba(255,255,255,.48)',font:{size:11} } } }, cutout:'65%' }
+  });
+}
+
+// ── UTILS ─────────────────────────────────────────────
+function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function countryFlag(code) {
+  if (!code || code.length !== 2) return '🌐';
+  const offset = 127397;
+  return String.fromCodePoint(...code.toUpperCase().split('').map(c => c.charCodeAt(0) + offset));
+}
+
+// ── INIT ──────────────────────────────────────────────
+loadAll();
+</script>
+</body>
+</html>
