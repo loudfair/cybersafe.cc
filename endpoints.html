@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Endpoints — cybersafe.cc</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --bg:#000;--bg-card:linear-gradient(145deg,rgba(255,255,255,.04) 0%,rgba(255,255,255,.01) 50%,rgba(0,0,0,.2) 100%);
+      --border:rgba(255,255,255,.08);--border-subtle:rgba(255,255,255,.05);
+      --text:#f5f5f7;--text-secondary:rgba(255,255,255,.72);--text-muted:rgba(255,255,255,.48);--text-faint:rgba(255,255,255,.32);
+      --green:#30d158;--blue:#2997ff;--red:#ff453a;--orange:#ff9f0a;--teal:#5ac8fa;--purple:#bf5af2;
+      --font:-apple-system,BlinkMacSystemFont,"SF Pro Display",system-ui,sans-serif;
+      --mono:"SF Mono",ui-monospace,monospace;--ease:cubic-bezier(.4,0,.2,1)
+    }
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    body{font-family:var(--font);background:var(--bg);background-image:radial-gradient(ellipse at 50% 0%,rgba(41,151,255,.04) 0%,transparent 60%);color:var(--text);-webkit-font-smoothing:antialiased;min-height:100vh;opacity:0;animation:fadeIn .4s var(--ease) forwards}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;background:linear-gradient(180deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.85) 100%);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border-subtle);display:flex;align-items:center;padding:0 24px}
+    .nav-logo{font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--text-secondary);display:flex;align-items:center;gap:8px;text-decoration:none}
+    .nav-logo .dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#30d158,#28a745);animation:pulse 2s ease infinite}
+    .nav-tabs{display:flex;align-items:center;gap:2px;margin-left:40px}
+    .nav-tab{font-size:13px;color:var(--text-muted);cursor:pointer;padding:6px 14px;border-radius:6px;transition:all .15s;border:none;background:none;font-family:var(--font);text-decoration:none}
+    .nav-tab:hover{color:var(--text);background:rgba(255,255,255,.05)}
+    .nav-tab.active{color:var(--text);background:rgba(255,255,255,.08)}
+    .nav-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+
+    main{max-width:1200px;margin:0 auto;padding:80px 24px 80px}
+
+    .hero{text-align:center;margin-bottom:48px;opacity:0;animation:fadeUp .5s var(--ease) .2s forwards}
+    .hero-eyebrow{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+    .hero-title{font-size:48px;font-weight:700;letter-spacing:-.04em;line-height:1.05;margin-bottom:12px;background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,.72) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero-sub{font-size:17px;color:var(--text-muted);max-width:560px;margin:0 auto;font-weight:300}
+
+    /* STATS */
+    .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:32px;opacity:0;animation:fadeUp .5s var(--ease) .3s forwards}
+    .stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:18px}
+    .stat-label{font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-faint);margin-bottom:7px}
+    .stat-value{font-size:26px;font-weight:700;letter-spacing:-.03em}
+    .stat-sub{font-size:11px;color:var(--text-muted);margin-top:3px}
+    .c-green{color:var(--green)}.c-red{color:var(--red)}.c-blue{color:var(--blue)}.c-orange{color:var(--orange)}
+
+    /* CONTROLS */
+    .controls{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;opacity:0;animation:fadeUp .5s var(--ease) .35s forwards}
+    .search-input{font-family:var(--mono);font-size:13px;padding:9px 14px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--text);outline:none;flex:1;min-width:220px;transition:border-color .2s}
+    .search-input:focus{border-color:rgba(41,151,255,.4)}
+    .search-input::placeholder{color:var(--text-faint)}
+    .filter-select{font-family:var(--font);font-size:12px;padding:9px 12px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--text);outline:none;cursor:pointer}
+    .filter-btn{font-size:12px;padding:9px 14px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--text-muted);cursor:pointer;font-family:var(--font);transition:all .15s;white-space:nowrap}
+    .filter-btn:hover{background:rgba(255,255,255,.08);color:var(--text)}
+    .filter-btn.active{border-color:rgba(48,209,88,.3);background:rgba(48,209,88,.1);color:var(--green)}
+    .filter-btn.vuln{border-color:rgba(255,69,58,.3)!important;background:rgba(255,69,58,.1)!important;color:var(--red)!important}
+
+    /* PLATFORM GROUP */
+    .platform-group{margin-bottom:16px;opacity:0;animation:fadeUp .5s var(--ease) .4s forwards}
+    .platform-header{display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(255,255,255,.02);border:1px solid var(--border-subtle);border-radius:12px 12px 0 0;cursor:pointer;user-select:none}
+    .platform-header:hover{background:rgba(255,255,255,.04)}
+    .platform-header.collapsed + .endpoint-list{display:none}
+    .platform-name{font-size:14px;font-weight:600;color:var(--text)}
+    .platform-grade{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:6px;font-size:12px;font-weight:800;font-family:var(--mono)}
+    .grade-A{background:rgba(48,209,88,.15);color:var(--green);border:1px solid rgba(48,209,88,.25)}
+    .grade-B{background:rgba(255,159,10,.15);color:var(--orange);border:1px solid rgba(255,159,10,.25)}
+    .grade-C{background:rgba(255,204,0,.12);color:#ffcc00;border:1px solid rgba(255,204,0,.2)}
+    .grade-F{background:rgba(255,69,58,.18);color:var(--red);border:1px solid rgba(255,69,58,.3)}
+    .grade-NA{background:rgba(255,255,255,.06);color:var(--text-faint);border:1px solid var(--border)}
+    .platform-counts{display:flex;gap:6px;margin-left:auto}
+    .count-badge{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px}
+    .cb-total{background:rgba(255,255,255,.06);color:var(--text-faint)}
+    .cb-public{background:rgba(48,209,88,.12);color:var(--green)}
+    .cb-vuln{background:rgba(255,69,58,.12);color:var(--red)}
+    .chevron{font-size:10px;color:var(--text-faint);transition:transform .2s;margin-left:4px}
+    .platform-header.collapsed .chevron{transform:rotate(-90deg)}
+
+    /* ENDPOINT LIST */
+    .endpoint-list{border:1px solid var(--border-subtle);border-top:none;border-radius:0 0 12px 12px;overflow:hidden}
+    .endpoint-row{display:grid;grid-template-columns:90px 1fr 80px 120px 100px;gap:0;align-items:stretch;border-bottom:1px solid rgba(255,255,255,.03);transition:background .15s}
+    .endpoint-row:last-child{border-bottom:none}
+    .endpoint-row:hover{background:rgba(255,255,255,.02)}
+    .endpoint-row.is-public{background:rgba(48,209,88,.025)}
+    .endpoint-row.is-public:hover{background:rgba(48,209,88,.04)}
+    .endpoint-row.is-vuln{background:rgba(255,69,58,.025)}
+    .endpoint-row.is-vuln:hover{background:rgba(255,69,58,.04)}
+    .ep-method{padding:12px 14px;display:flex;align-items:center;justify-content:center;border-right:1px solid rgba(255,255,255,.03)}
+    .method-tag{font-family:var(--mono);font-size:11px;font-weight:700;padding:3px 8px;border-radius:5px;background:rgba(48,209,88,.12);color:var(--green);border:1px solid rgba(48,209,88,.2)}
+    .method-tag.POST{background:rgba(41,151,255,.12);color:var(--blue);border-color:rgba(41,151,255,.2)}
+    .ep-url{padding:12px 14px;display:flex;flex-direction:column;gap:3px;min-width:0}
+    .ep-path{font-family:var(--mono);font-size:12px;color:var(--text-secondary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .ep-full-url{font-size:11px;color:var(--text-faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .ep-data{font-size:10px;color:var(--teal);margin-top:2px}
+    .ep-status{padding:12px 14px;display:flex;align-items:center;justify-content:center;border-left:1px solid rgba(255,255,255,.03)}
+    .status-tag{font-family:var(--mono);font-size:12px;font-weight:700;padding:3px 8px;border-radius:5px}
+    .s-200{background:rgba(48,209,88,.15);color:var(--green)}
+    .s-400,.s-401,.s-403,.s-404{background:rgba(255,255,255,.06);color:var(--text-faint)}
+    .s-000{background:rgba(255,255,255,.04);color:var(--text-faint)}
+    .ep-rating{padding:10px 12px;display:flex;align-items:center;border-left:1px solid rgba(255,255,255,.03)}
+    .rating-tag{font-size:10px;font-weight:600;padding:3px 7px;border-radius:4px;line-height:1.4;text-align:center}
+    .r-vuln{background:rgba(255,69,58,.15);color:var(--red);border:1px solid rgba(255,69,58,.2)}
+    .r-partial{background:rgba(255,159,10,.12);color:var(--orange);border:1px solid rgba(255,159,10,.2)}
+    .r-secure{background:rgba(255,255,255,.05);color:var(--text-faint);border:1px solid var(--border)}
+    .r-unknown{background:rgba(255,255,255,.03);color:var(--text-faint);border:1px solid var(--border-subtle)}
+    .ep-action{padding:10px 12px;display:flex;align-items:center;justify-content:center;border-left:1px solid rgba(255,255,255,.03)}
+    .try-btn{font-size:11px;font-weight:600;padding:5px 12px;border-radius:6px;border:1px solid var(--border);background:rgba(255,255,255,.05);color:var(--text-muted);cursor:pointer;font-family:var(--font);transition:all .15s;white-space:nowrap;text-decoration:none;display:inline-block}
+    .try-btn:hover{background:rgba(41,151,255,.15);color:var(--blue);border-color:rgba(41,151,255,.3)}
+    .try-btn.public{background:rgba(48,209,88,.1);color:var(--green);border-color:rgba(48,209,88,.25)}
+    .try-btn.public:hover{background:rgba(48,209,88,.2)}
+
+    /* EMPTY */
+    .empty-state{text-align:center;padding:60px;color:var(--text-faint);font-size:13px}
+
+    /* TOOLTIP */
+    [title]{cursor:help}
+
+    ::-webkit-scrollbar{width:5px;height:5px}
+    ::-webkit-scrollbar-track{background:transparent}
+    ::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:3px}
+
+    @media(max-width:700px){
+      .stats-row{grid-template-columns:repeat(2,1fr)}
+      .hero-title{font-size:32px}
+      .endpoint-row{grid-template-columns:70px 1fr 60px}
+      .ep-rating,.ep-status{display:none}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/"><div class="dot"></div>cybersafe<span style="color:var(--text-faint)">.cc</span></a>
+  <div class="nav-tabs">
+    <a class="nav-tab" href="/">Explorer</a>
+    <a class="nav-tab" href="/research.html">Research</a>
+    <a class="nav-tab active" href="/endpoints.html">Endpoints</a>
+  </div>
+  <div class="nav-right">
+    <span id="nav-count" style="font-size:11px;color:var(--text-faint)">Loading...</span>
+  </div>
+</nav>
+
+<main>
+  <div class="hero">
+    <div class="hero-eyebrow">Fitness Platform APIs</div>
+    <h1 class="hero-title">All API Endpoints</h1>
+    <p class="hero-sub">180 endpoints across 20 platforms. Public endpoints highlighted. Click any to test live in the Explorer.</p>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-label">Total Endpoints</div>
+      <div class="stat-value c-blue" id="s-total">180</div>
+      <div class="stat-sub">across 20 platforms</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Publicly Accessible</div>
+      <div class="stat-value c-green" id="s-public">18</div>
+      <div class="stat-sub">no auth required</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Vulnerable</div>
+      <div class="stat-value c-red" id="s-vuln">0</div>
+      <div class="stat-sub">data exposed</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Auth Required</div>
+      <div class="stat-value c-orange" id="s-auth">0</div>
+      <div class="stat-sub">secured endpoints</div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <input class="search-input" id="search" placeholder="Search endpoint, platform, URL..." oninput="applyFilters()" />
+    <select class="filter-select" id="platform-filter" onchange="applyFilters()">
+      <option value="">All Platforms</option>
+    </select>
+    <button class="filter-btn" id="btn-all" onclick="setStatusFilter('all',this)">All</button>
+    <button class="filter-btn" id="btn-public" onclick="setStatusFilter('public',this)">🟢 Public Only</button>
+    <button class="filter-btn vuln" id="btn-vuln" onclick="setStatusFilter('vuln',this)">⚠ Vulnerable</button>
+    <button class="filter-btn" id="btn-secure" onclick="setStatusFilter('secure',this)">🔒 Secured</button>
+  </div>
+
+  <div id="results"></div>
+</main>
+
+<script>
+let allEndpoints = [];
+let statusFilter = 'all';
+
+// ── LOAD ─────────────────────────────────────────────
+async function init() {
+  const data = await fetch('/data/endpoints.json').then(r => r.json());
+  allEndpoints = data;
+
+  // Populate platform filter
+  const platforms = [...new Set(data.map(e => e.platform))].sort();
+  const pf = document.getElementById('platform-filter');
+  platforms.forEach(p => {
+    const o = document.createElement('option'); o.value = p; o.textContent = p; pf.appendChild(o);
+  });
+
+  // Stats
+  const vuln = data.filter(e => e.security_rating?.includes('VULNERABLE'));
+  const pub = data.filter(e => e.is_public);
+  const auth = data.filter(e => e.security_rating?.includes('SECURE'));
+  document.getElementById('s-total').textContent = data.length;
+  document.getElementById('s-public').textContent = pub.length;
+  document.getElementById('s-vuln').textContent = vuln.length;
+  document.getElementById('s-auth').textContent = auth.length;
+  document.getElementById('nav-count').textContent = data.length + ' endpoints';
+
+  setStatusFilter('all', document.getElementById('btn-all'));
+}
+
+// ── FILTERS ───────────────────────────────────────────
+function setStatusFilter(val, btn) {
+  statusFilter = val;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  applyFilters();
+}
+
+function applyFilters() {
+  const q = document.getElementById('search').value.toLowerCase();
+  const platform = document.getElementById('platform-filter').value;
+
+  let filtered = allEndpoints.filter(e => {
+    if (platform && e.platform !== platform) return false;
+    if (statusFilter === 'public' && !e.is_public) return false;
+    if (statusFilter === 'vuln' && !e.security_rating?.includes('VULNERABLE')) return false;
+    if (statusFilter === 'secure' && !e.security_rating?.includes('SECURE')) return false;
+    if (q && !(`${e.platform} ${e.endpoint_url} ${e.endpoint_path} ${e.data_types_exposed||''}`).toLowerCase().includes(q)) return false;
+    return true;
+  });
+
+  renderResults(filtered);
+}
+
+// ── RENDER ────────────────────────────────────────────
+function renderResults(endpoints) {
+  const container = document.getElementById('results');
+  if (!endpoints.length) {
+    container.innerHTML = '<div class="empty-state">No endpoints match your filters.</div>';
+    return;
+  }
+
+  // Group by platform
+  const groups = {};
+  endpoints.forEach(e => {
+    if (!groups[e.platform]) groups[e.platform] = [];
+    groups[e.platform].push(e);
+  });
+
+  // Get ratings for grades
+  container.innerHTML = Object.entries(groups).sort(([a],[b]) => a.localeCompare(b)).map(([platform, eps]) => {
+    const pubCount = eps.filter(e => e.is_public).length;
+    const vulnCount = eps.filter(e => e.security_rating?.includes('VULNERABLE')).length;
+    const grade = getGrade(eps);
+
+    return `<div class="platform-group">
+      <div class="platform-header" onclick="toggleGroup(this)">
+        <span class="platform-grade grade-${grade}">${grade === 'NA' ? '?' : grade}</span>
+        <span class="platform-name">${esc(platform)}</span>
+        <div class="platform-counts">
+          <span class="count-badge cb-total">${eps.length} endpoints</span>
+          ${pubCount ? `<span class="count-badge cb-public">${pubCount} public</span>` : ''}
+          ${vulnCount ? `<span class="count-badge cb-vuln">⚠ ${vulnCount} vuln</span>` : ''}
+        </div>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="endpoint-list">
+        ${eps.map(e => renderEndpoint(e)).join('')}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderEndpoint(e) {
+  const isVuln = e.security_rating?.includes('VULNERABLE');
+  const isPartial = e.security_rating?.includes('PARTIAL');
+  const isPub = e.is_public;
+  const rowClass = isVuln ? 'is-vuln' : isPub ? 'is-public' : '';
+
+  const statusCode = String(e.http_status || '000');
+  const statusClass = statusCode === '200' ? 's-200' : statusCode.startsWith('4') ? 's-400' : 's-000';
+
+  let ratingLabel = 'Unknown', ratingClass = 'r-unknown';
+  if (isVuln) { ratingLabel = 'Vulnerable'; ratingClass = 'r-vuln'; }
+  else if (isPartial) { ratingLabel = 'Partial'; ratingClass = 'r-partial'; }
+  else if (e.security_rating?.includes('SECURE')) { ratingLabel = 'Secured'; ratingClass = 'r-secure'; }
+
+  const tryUrl = `/?url=${encodeURIComponent(e.endpoint_url)}&method=GET`;
+
+  return `<div class="endpoint-row ${rowClass}">
+    <div class="ep-method"><span class="method-tag">GET</span></div>
+    <div class="ep-url">
+      <div class="ep-path" title="${esc(e.endpoint_url)}">${esc(e.endpoint_path || e.endpoint_url)}</div>
+      <div class="ep-full-url">${esc(e.endpoint_url)}</div>
+      ${e.data_types_exposed ? `<div class="ep-data">↳ ${esc(e.data_types_exposed)}</div>` : ''}
+    </div>
+    <div class="ep-status"><span class="status-tag ${statusClass}">${statusCode}</span></div>
+    <div class="ep-rating"><span class="rating-tag ${ratingClass}">${ratingLabel}</span></div>
+    <div class="ep-action">
+      <a class="try-btn ${isPub ? 'public' : ''}" href="${tryUrl}" title="Open in Explorer">
+        ${isPub ? '▶ Try it' : 'Explorer →'}
+      </a>
+    </div>
+  </div>`;
+}
+
+function toggleGroup(header) {
+  header.classList.toggle('collapsed');
+}
+
+function getGrade(eps) {
+  const platform = eps[0]?.platform || '';
+  const gradeMap = {
+    'Momence': 'F', 'MindBody Widget': 'C', 'MindBody': 'B', 'SimplyBook': 'B',
+    'Glofox': 'A', 'WellnessLiving': 'A', 'Vagaro': 'A', 'PushPress': 'A',
+    'Wodify': 'A', 'ClubReady': 'A', 'Acuity': 'A', 'Pike13': 'A',
+    'ClassPass': 'A', 'Gymdesk': 'A', 'Virtuagym': 'A', 'Fitogram': 'A',
+    'SportsEngine': 'A', 'Bookeo': 'A', 'Eversports': 'NA', 'TeamUp': 'NA',
+    'ZenPlanner': 'NA', 'Zen Planner': 'NA', 'Fisikal': 'NA',
+    'ABC Fitness': 'NA', 'Mariana Tek': 'NA',
+  };
+  return gradeMap[platform] || 'NA';
+}
+
+function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+// ── URL PARAMS — load endpoint into explorer ──────────
+function handleUrlParam() {
+  const params = new URLSearchParams(location.search);
+  const url = params.get('url');
+  if (url && window.opener) {
+    window.opener.postMessage({ type: 'load-endpoint', url }, '*');
+  }
+}
+
+init();
+</script>
+</body>
+</html>

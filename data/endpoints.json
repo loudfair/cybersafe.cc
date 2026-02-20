@@ -1,0 +1,1802 @@
+[
+  {
+    "platform":"ABC Fitness",
+    "endpoint_url":"https://abcfinancial.3scale.net/api/v1/clubs",
+    "endpoint_path":"Clubs List",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"ABC Fitness",
+    "endpoint_url":"https://abcfinancial.3scale.net/api/v1/members",
+    "endpoint_path":"Members List",
+    "http_status":"404",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"ABC Fitness",
+    "endpoint_url":"https://api.abcfitness.com/v1/clubs",
+    "endpoint_path":"Clubs API",
+    "http_status":"000",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"ABC Fitness",
+    "endpoint_url":"https://api.abcfitness.com/v1/members",
+    "endpoint_path":"Members API",
+    "http_status":"000",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"ABC Fitness",
+    "endpoint_url":"https://login.gymsales.net/api/v1/leads",
+    "endpoint_path":"Leads API",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Acuity",
+    "endpoint_url":"https://acuityscheduling.com/api/v1/appointments",
+    "endpoint_path":"Appointments",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Acuity",
+    "endpoint_url":"https://acuityscheduling.com/api/v1/clients",
+    "endpoint_path":"Clients",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Acuity",
+    "endpoint_url":"https://acuityscheduling.com/api/v1/calendars",
+    "endpoint_path":"Calendars",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Acuity",
+    "endpoint_url":"https://acuityscheduling.com/api/v1/availability/classes",
+    "endpoint_path":"Availability",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Acuity",
+    "endpoint_url":"https://acuityscheduling.com/api/v1/forms",
+    "endpoint_path":"Forms",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Bookeo",
+    "endpoint_url":"https://api.bookeo.com/v2/bookings",
+    "endpoint_path":"Bookings",
+    "http_status":"400",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Bookeo",
+    "endpoint_url":"https://api.bookeo.com/v2/customers",
+    "endpoint_path":"Customers",
+    "http_status":"400",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Bookeo",
+    "endpoint_url":"https://api.bookeo.com/v2/settings",
+    "endpoint_path":"Settings",
+    "http_status":"400",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Bookeo",
+    "endpoint_url":"https://api.bookeo.com/v2/availability",
+    "endpoint_path":"Availability",
+    "http_status":"400",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Bookeo",
+    "endpoint_url":"https://api.bookeo.com/v2/products",
+    "endpoint_path":"Products",
+    "http_status":"400",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"ClassPass",
+    "endpoint_url":"https://classpass.com/api/v1/venues",
+    "endpoint_path":"Venues",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"ClassPass",
+    "endpoint_url":"https://classpass.com/api/v1/classes",
+    "endpoint_path":"Classes",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"ClassPass",
+    "endpoint_url":"https://classpass.com/api/v1/search",
+    "endpoint_path":"Search",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"ClassPass",
+    "endpoint_url":"https://api.classpass.com/partners/v1/venues",
+    "endpoint_path":"Partner Venues",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"ClassPass",
+    "endpoint_url":"https://api.classpass.com/partners/v1/schedules",
+    "endpoint_path":"Partner Schedules",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"ClubReady",
+    "endpoint_url":"https://www.clubready.com/api/club/custom-category",
+    "endpoint_path":"Custom Category",
+    "http_status":"400",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"ClubReady",
+    "endpoint_url":"https://www.clubready.com/api/club/membership-types",
+    "endpoint_path":"Membership Types",
+    "http_status":"400",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"ClubReady",
+    "endpoint_url":"https://www.clubready.com/api/club/lead-types",
+    "endpoint_path":"Lead Types",
+    "http_status":"400",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"ClubReady",
+    "endpoint_url":"https://www.clubready.com/api/club/referral-types",
+    "endpoint_path":"Referral Types",
+    "http_status":"400",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"ClubReady",
+    "endpoint_url":"https://www.clubready.com/api/club/visit-history",
+    "endpoint_path":"Visit History",
+    "http_status":"400",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"ClubReady",
+    "endpoint_url":"https://www.clubready.com/api/club/1/Users/all",
+    "endpoint_path":"Users List",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"ClubReady",
+    "endpoint_url":"https://www.clubready.com/api/club/100/Users/all",
+    "endpoint_path":"Users List ID 100",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"ClubReady",
+    "endpoint_url":"https://www.clubready.com/api/club/500/Users/all",
+    "endpoint_path":"Users List ID 500",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"ClubReady",
+    "endpoint_url":"https://www.clubready.com/api/scheduling/classes",
+    "endpoint_path":"Scheduling Classes",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"ClubReady",
+    "endpoint_url":"https://www.clubready.com/api/users/search",
+    "endpoint_path":"User Search",
+    "http_status":"400",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Eversports",
+    "endpoint_url":"https://api.eversports.com/v1/venues",
+    "endpoint_path":"Venues",
+    "http_status":"000",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Eversports",
+    "endpoint_url":"https://api.eversports.com/v1/classes",
+    "endpoint_path":"Classes",
+    "http_status":"000",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Eversports",
+    "endpoint_url":"https://api.eversports.com/v1/bookings",
+    "endpoint_path":"Bookings",
+    "http_status":"000",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Eversports",
+    "endpoint_url":"https://api.eversports.com/v1/users",
+    "endpoint_path":"Users",
+    "http_status":"000",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Eversports",
+    "endpoint_url":"https://api.eversports.com/v1/schedules",
+    "endpoint_path":"Schedules",
+    "http_status":"000",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Fisikal",
+    "endpoint_url":"https://api.fisikal.com/v1/users",
+    "endpoint_path":"Users",
+    "http_status":"503",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Fisikal",
+    "endpoint_url":"https://api.fisikal.com/v1/clubs",
+    "endpoint_path":"Clubs",
+    "http_status":"503",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Fisikal",
+    "endpoint_url":"https://api.fisikal.com/v1/classes",
+    "endpoint_path":"Classes",
+    "http_status":"503",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Fisikal",
+    "endpoint_url":"https://api.fisikal.com/v1/bookings",
+    "endpoint_path":"Bookings",
+    "http_status":"503",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Fisikal",
+    "endpoint_url":"https://api.fisikal.com/v1/members",
+    "endpoint_path":"Members",
+    "http_status":"503",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Fitogram",
+    "endpoint_url":"https://api.fitogram.pro/v1/studios",
+    "endpoint_path":"Studios",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Fitogram",
+    "endpoint_url":"https://api.fitogram.pro/v1/classes",
+    "endpoint_path":"Classes",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Fitogram",
+    "endpoint_url":"https://api.fitogram.pro/v1/bookings",
+    "endpoint_path":"Bookings",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Fitogram",
+    "endpoint_url":"https://api.fitogram.pro/v1/customers",
+    "endpoint_path":"Customers",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Fitogram",
+    "endpoint_url":"https://api.fitogram.pro/v1/memberships",
+    "endpoint_path":"Memberships",
+    "http_status":"000",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Glofox",
+    "endpoint_url":"https://gf-api.aws.glofox.com/prod/2.0/members",
+    "endpoint_path":"GET /members",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Glofox",
+    "endpoint_url":"https://gf-api.aws.glofox.com/prod/2.0/classes",
+    "endpoint_path":"GET /classes",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Glofox",
+    "endpoint_url":"https://gf-api.aws.glofox.com/prod/2.0/bookings",
+    "endpoint_path":"GET /bookings",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Glofox",
+    "endpoint_url":"https://gf-api.aws.glofox.com/prod/2.0/locations",
+    "endpoint_path":"GET /locations",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Glofox",
+    "endpoint_url":"https://gf-api.aws.glofox.com/prod/2.0/memberships",
+    "endpoint_path":"GET /memberships",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Glofox",
+    "endpoint_url":"https://gf-api.aws.glofox.com/prod/2.0/plans",
+    "endpoint_path":"GET /plans",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Glofox",
+    "endpoint_url":"https://gf-api.aws.glofox.com/prod/2.0/events",
+    "endpoint_path":"GET /events",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Glofox",
+    "endpoint_url":"https://gf-api.aws.glofox.com/prod/2.0/credits",
+    "endpoint_path":"GET /credits",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Glofox",
+    "endpoint_url":"https://gf-api.aws.glofox.com/prod/2.0/purchases",
+    "endpoint_path":"GET /purchases",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Glofox",
+    "endpoint_url":"https://gf-api.aws.glofox.com/prod/2.0/staff",
+    "endpoint_path":"GET /staff",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Gymdesk",
+    "endpoint_url":"https://api.gymdesk.com/v1/members",
+    "endpoint_path":"GET /members",
+    "http_status":"404",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Gymdesk",
+    "endpoint_url":"https://api.gymdesk.com/v1/classes",
+    "endpoint_path":"GET /classes",
+    "http_status":"404",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Gymdesk",
+    "endpoint_url":"https://api.gymdesk.com/v1/locations",
+    "endpoint_path":"GET /locations",
+    "http_status":"404",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Gymdesk",
+    "endpoint_url":"https://api.gymdesk.com/v1/staff",
+    "endpoint_path":"GET /staff",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Gymdesk",
+    "endpoint_url":"https://api.gymdesk.com/v1/memberships",
+    "endpoint_path":"GET /memberships",
+    "http_status":"404",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Gymdesk",
+    "endpoint_url":"https://app.gymdesk.com/api/v1/members",
+    "endpoint_path":"Members",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Gymdesk",
+    "endpoint_url":"https://app.gymdesk.com/api/v1/classes",
+    "endpoint_path":"Classes",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Gymdesk",
+    "endpoint_url":"https://app.gymdesk.com/api/v1/schedule",
+    "endpoint_path":"Schedule",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Gymdesk",
+    "endpoint_url":"https://app.gymdesk.com/api/v1/locations",
+    "endpoint_path":"Locations",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Gymdesk",
+    "endpoint_url":"https://app.gymdesk.com/api/v1/plans",
+    "endpoint_path":"Plans",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Mariana Tek",
+    "endpoint_url":"https://api.marianatek.com/api/customer/v1/me",
+    "endpoint_path":"Customer Me",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Mariana Tek",
+    "endpoint_url":"https://api.marianatek.com/api/customer/v1/regions",
+    "endpoint_path":"Regions",
+    "http_status":"404",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Mariana Tek",
+    "endpoint_url":"https://api.marianatek.com/api/customer/v1/brands",
+    "endpoint_path":"Brands",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Mariana Tek",
+    "endpoint_url":"https://api.marianatek.com/api/customer/v1/locations",
+    "endpoint_path":"Locations",
+    "http_status":"404",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Mariana Tek",
+    "endpoint_url":"https://api.marianatek.com/api/customer/v1/classes",
+    "endpoint_path":"Classes",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"MindBody",
+    "endpoint_url":"https://api.mindbodyonline.com/public/v6/site/sites",
+    "endpoint_path":"GET /site/sites",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"MindBody",
+    "endpoint_url":"https://api.mindbodyonline.com/public/v6/class/classes",
+    "endpoint_path":"GET /class/classes",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"MindBody",
+    "endpoint_url":"https://api.mindbodyonline.com/public/v6/client/clients",
+    "endpoint_path":"GET /client/clients",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"MindBody",
+    "endpoint_url":"https://api.mindbodyonline.com/public/v6/staff/staff",
+    "endpoint_path":"GET /staff/staff",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"MindBody",
+    "endpoint_url":"https://api.mindbodyonline.com/public/v6/sale/sales",
+    "endpoint_path":"GET /sale/sales",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"MindBody",
+    "endpoint_url":"https://api.mindbodyonline.com/public/v6/appointment/appointments",
+    "endpoint_path":"GET /appointment/appointments",
+    "http_status":"404",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"MindBody",
+    "endpoint_url":"https://api.mindbodyonline.com/public/v6/enrollment/enrollments",
+    "endpoint_path":"GET /enrollment/enrollments",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"MindBody",
+    "endpoint_url":"https://api.mindbodyonline.com/public/v6/payroll/payroll",
+    "endpoint_path":"GET /payroll/payroll",
+    "http_status":"404",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"MindBody",
+    "endpoint_url":"https://api.mindbodyonline.com/public/v6/site/locations",
+    "endpoint_path":"GET /site/locations",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"MindBody",
+    "endpoint_url":"https://api.mindbodyonline.com/public/v6/site/resources",
+    "endpoint_path":"GET /site/resources",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"MindBody Widget",
+    "endpoint_url":"https://widgets.mindbodyonline.com/widgets/schedules/e6293203eae",
+    "endpoint_path":"Schedule Widget",
+    "http_status":"200",
+    "security_rating":"PARTIAL - Limited Data",
+    "data_types_exposed":"Business names, instructor names, schedule times",
+    "test_round":"round_2",
+    "is_public":true
+  },
+  {
+    "platform":"MindBody Widget",
+    "endpoint_url":"https://widgets.mindbodyonline.com/widgets/schedules/8c3090f1ab",
+    "endpoint_path":"Schedule Widget",
+    "http_status":"200",
+    "security_rating":"VULNERABLE - Data Exposed",
+    "data_types_exposed":"Business names, instructor names, schedule times",
+    "test_round":"round_2",
+    "is_public":true
+  },
+  {
+    "platform":"MindBody Widget",
+    "endpoint_url":"https://widgets.mindbodyonline.com/widgets/schedules/6833227a537",
+    "endpoint_path":"Schedule Widget",
+    "http_status":"200",
+    "security_rating":"PARTIAL - Limited Data",
+    "data_types_exposed":"Business names, instructor names, schedule times",
+    "test_round":"round_2",
+    "is_public":true
+  },
+  {
+    "platform":"MindBody Widget",
+    "endpoint_url":"https://widgets.mindbodyonline.com/widgets/schedules/8630097eab5",
+    "endpoint_path":"Schedule Widget",
+    "http_status":"200",
+    "security_rating":"PARTIAL - Limited Data",
+    "data_types_exposed":"Business names, instructor names, schedule times",
+    "test_round":"round_2",
+    "is_public":true
+  },
+  {
+    "platform":"MindBody Widget",
+    "endpoint_url":"https://widgets.mindbodyonline.com/widgets/schedules/1f42498128e",
+    "endpoint_path":"Schedule Widget",
+    "http_status":"200",
+    "security_rating":"PARTIAL - Limited Data",
+    "data_types_exposed":"Business names, instructor names, schedule times",
+    "test_round":"round_2",
+    "is_public":true
+  },
+  {
+    "platform":"MindBody Widget",
+    "endpoint_url":"https://widgets.mindbodyonline.com/widgets/schedules/11165886693",
+    "endpoint_path":"Schedule Widget",
+    "http_status":"200",
+    "security_rating":"PARTIAL - Limited Data",
+    "data_types_exposed":"Business names, instructor names, schedule times",
+    "test_round":"round_2",
+    "is_public":true
+  },
+  {
+    "platform":"MindBody Widget",
+    "endpoint_url":"https://widgets.mindbodyonline.com/widgets/schedules/1b42319d194",
+    "endpoint_path":"Schedule Widget",
+    "http_status":"200",
+    "security_rating":"PARTIAL - Limited Data",
+    "data_types_exposed":"Business names, instructor names, schedule times",
+    "test_round":"round_2",
+    "is_public":true
+  },
+  {
+    "platform":"MindBody Widget",
+    "endpoint_url":"https://widgets.mindbodyonline.com/widgets/schedules/59333460ec4",
+    "endpoint_path":"Schedule Widget",
+    "http_status":"200",
+    "security_rating":"VULNERABLE - Data Exposed",
+    "data_types_exposed":"Business names, instructor names, schedule times",
+    "test_round":"round_2",
+    "is_public":true
+  },
+  {
+    "platform":"MindBody Widget",
+    "endpoint_url":"https://widgets.mindbodyonline.com/widgets/schedules/0c307692d52",
+    "endpoint_path":"Schedule Widget",
+    "http_status":"200",
+    "security_rating":"PARTIAL - Limited Data",
+    "data_types_exposed":"Business names, instructor names, schedule times",
+    "test_round":"round_2",
+    "is_public":true
+  },
+  {
+    "platform":"MindBody Widget",
+    "endpoint_url":"https://widgets.mindbodyonline.com/widgets/schedules/abc123test",
+    "endpoint_path":"Random ID Test",
+    "http_status":"405",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Momence",
+    "endpoint_url":"https://readonly-api.momence.com/host-plugins/host/100/host-schedule",
+    "endpoint_path":"GET /host/100/host-schedule",
+    "http_status":"200",
+    "security_rating":"VULNERABLE - Data Exposed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":true
+  },
+  {
+    "platform":"Momence",
+    "endpoint_url":"https://readonly-api.momence.com/host-plugins/host/500/host-schedule",
+    "endpoint_path":"GET /host/500/host-schedule",
+    "http_status":"200",
+    "security_rating":"VULNERABLE - Data Exposed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":true
+  },
+  {
+    "platform":"Momence",
+    "endpoint_url":"https://readonly-api.momence.com/host-plugins/host/1000/host-schedule",
+    "endpoint_path":"GET /host/1000/host-schedule",
+    "http_status":"200",
+    "security_rating":"VULNERABLE - Data Exposed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":true
+  },
+  {
+    "platform":"Momence",
+    "endpoint_url":"https://readonly-api.momence.com/host-plugins/host/5000/host-schedule",
+    "endpoint_path":"GET /host/5000/host-schedule",
+    "http_status":"200",
+    "security_rating":"VULNERABLE - Data Exposed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":true
+  },
+  {
+    "platform":"Momence",
+    "endpoint_url":"https://readonly-api.momence.com/host-plugins/host/10000/host-schedule",
+    "endpoint_path":"GET /host/10000/host-schedule",
+    "http_status":"200",
+    "security_rating":"VULNERABLE - Data Exposed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":true
+  },
+  {
+    "platform":"Momence",
+    "endpoint_url":"https://api.momence.com/v1/hosts",
+    "endpoint_path":"GET /hosts",
+    "http_status":"404",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Momence",
+    "endpoint_url":"https://api.momence.com/v1/classes",
+    "endpoint_path":"GET /classes",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Momence",
+    "endpoint_url":"https://api.momence.com/v1/bookings",
+    "endpoint_path":"GET /bookings",
+    "http_status":"404",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Momence",
+    "endpoint_url":"https://api.momence.com/v1/members",
+    "endpoint_path":"GET /members",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Momence",
+    "endpoint_url":"https://api.momence.com/v1/locations",
+    "endpoint_path":"GET /locations",
+    "http_status":"404",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Pike13",
+    "endpoint_url":"https://api.pike13.com/api/v2/desk/businesses",
+    "endpoint_path":"Businesses",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Pike13",
+    "endpoint_url":"https://api.pike13.com/api/v2/desk/people",
+    "endpoint_path":"People",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Pike13",
+    "endpoint_url":"https://api.pike13.com/api/v2/desk/event_occurrences",
+    "endpoint_path":"Events",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Pike13",
+    "endpoint_url":"https://api.pike13.com/api/v2/front/businesses",
+    "endpoint_path":"Front Businesses",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Pike13",
+    "endpoint_url":"https://api.pike13.com/api/v2/front/services",
+    "endpoint_path":"Front Services",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"PushPress",
+    "endpoint_url":"https://api.pushpress.com/v1/members",
+    "endpoint_path":"GET /members",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"PushPress",
+    "endpoint_url":"https://api.pushpress.com/v1/classes",
+    "endpoint_path":"GET /classes",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"PushPress",
+    "endpoint_url":"https://api.pushpress.com/v1/locations",
+    "endpoint_path":"GET /locations",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"PushPress",
+    "endpoint_url":"https://api.pushpress.com/v1/plans",
+    "endpoint_path":"GET /plans",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"PushPress",
+    "endpoint_url":"https://api.pushpress.com/v1/checkins",
+    "endpoint_path":"GET /checkins",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"PushPress",
+    "endpoint_url":"https://api.pushpress.com/v1/staff",
+    "endpoint_path":"GET /staff",
+    "http_status":"404",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"PushPress",
+    "endpoint_url":"https://api.pushpress.com/v1/events",
+    "endpoint_path":"GET /events",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"PushPress",
+    "endpoint_url":"https://api.pushpress.com/v1/appointments",
+    "endpoint_path":"GET /appointments",
+    "http_status":"404",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"PushPress",
+    "endpoint_url":"https://api.pushpress.com/v1/invoices",
+    "endpoint_path":"GET /invoices",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"PushPress",
+    "endpoint_url":"https://api.pushpress.com/v1/payments",
+    "endpoint_path":"GET /payments",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"SimplyBook",
+    "endpoint_url":"https://user-api.simplybook.me/login",
+    "endpoint_path":"Login",
+    "http_status":"200",
+    "security_rating":"PARTIAL - Limited Data",
+    "data_types_exposed":"API documentation",
+    "test_round":"round_2",
+    "is_public":true
+  },
+  {
+    "platform":"SimplyBook",
+    "endpoint_url":"https://user-api.simplybook.me/admin/services",
+    "endpoint_path":"Services",
+    "http_status":"200",
+    "security_rating":"PARTIAL - Limited Data",
+    "data_types_exposed":"API structure, method names, parameters",
+    "test_round":"round_2",
+    "is_public":true
+  },
+  {
+    "platform":"SimplyBook",
+    "endpoint_url":"https://user-api.simplybook.me/admin/providers",
+    "endpoint_path":"Providers",
+    "http_status":"200",
+    "security_rating":"PARTIAL - Limited Data",
+    "data_types_exposed":"API method names and parameters",
+    "test_round":"round_2",
+    "is_public":true
+  },
+  {
+    "platform":"SimplyBook",
+    "endpoint_url":"https://user-api-v2.simplybook.me/admin/services",
+    "endpoint_path":"Services V2",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"SimplyBook",
+    "endpoint_url":"https://user-api-v2.simplybook.me/admin/bookings",
+    "endpoint_path":"Bookings V2",
+    "http_status":"401",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"SportsEngine",
+    "endpoint_url":"https://api.sportsengine.com/v1/organizations",
+    "endpoint_path":"Organizations",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"SportsEngine",
+    "endpoint_url":"https://api.sportsengine.com/v1/members",
+    "endpoint_path":"Members",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"SportsEngine",
+    "endpoint_url":"https://api.sportsengine.com/v1/events",
+    "endpoint_path":"Events",
+    "http_status":"404",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"SportsEngine",
+    "endpoint_url":"https://api.sportsengine.com/v1/teams",
+    "endpoint_path":"Teams",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"SportsEngine",
+    "endpoint_url":"https://api.sportsengine.com/v1/registrations",
+    "endpoint_path":"Registrations",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"TeamUp",
+    "endpoint_url":"https://api.goteamup.com/v1/businesses",
+    "endpoint_path":"GET /businesses",
+    "http_status":"000",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"TeamUp",
+    "endpoint_url":"https://api.goteamup.com/v1/members",
+    "endpoint_path":"GET /members",
+    "http_status":"000",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"TeamUp",
+    "endpoint_url":"https://api.goteamup.com/v1/classes",
+    "endpoint_path":"GET /classes",
+    "http_status":"000",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"TeamUp",
+    "endpoint_url":"https://api.goteamup.com/v1/locations",
+    "endpoint_path":"GET /locations",
+    "http_status":"000",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"TeamUp",
+    "endpoint_url":"https://api.goteamup.com/v1/bookings",
+    "endpoint_path":"GET /bookings",
+    "http_status":"000",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Vagaro",
+    "endpoint_url":"https://api.vagaro.com/v1/businesses",
+    "endpoint_path":"GET /businesses",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Vagaro",
+    "endpoint_url":"https://api.vagaro.com/v1/clients",
+    "endpoint_path":"GET /clients",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Vagaro",
+    "endpoint_url":"https://api.vagaro.com/v1/appointments",
+    "endpoint_path":"GET /appointments",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Vagaro",
+    "endpoint_url":"https://api.vagaro.com/v1/services",
+    "endpoint_path":"GET /services",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Vagaro",
+    "endpoint_url":"https://api.vagaro.com/v1/staff",
+    "endpoint_path":"GET /staff",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Vagaro",
+    "endpoint_url":"https://api.vagaro.com/v1/classes",
+    "endpoint_path":"GET /classes",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Vagaro",
+    "endpoint_url":"https://api.vagaro.com/v1/locations",
+    "endpoint_path":"GET /locations",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Vagaro",
+    "endpoint_url":"https://api.vagaro.com/v1/products",
+    "endpoint_path":"GET /products",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Vagaro",
+    "endpoint_url":"https://api.vagaro.com/v1/memberships",
+    "endpoint_path":"GET /memberships",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Vagaro",
+    "endpoint_url":"https://api.vagaro.com/v1/reports",
+    "endpoint_path":"GET /reports",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Virtuagym",
+    "endpoint_url":"https://api.virtuagym.com/v1/clubs",
+    "endpoint_path":"Clubs",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Virtuagym",
+    "endpoint_url":"https://api.virtuagym.com/v1/members",
+    "endpoint_path":"Members",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Virtuagym",
+    "endpoint_url":"https://api.virtuagym.com/v1/activities",
+    "endpoint_path":"Activities",
+    "http_status":"404",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Virtuagym",
+    "endpoint_url":"https://api.virtuagym.com/v1/events",
+    "endpoint_path":"Events",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Virtuagym",
+    "endpoint_url":"https://api.virtuagym.com/v1/trainers",
+    "endpoint_path":"Trainers",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"WellnessLiving",
+    "endpoint_url":"https://us.wellnessliving.com/api/Wl/Class/ClassList.json",
+    "endpoint_path":"GET /Class/ClassList",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"WellnessLiving",
+    "endpoint_url":"https://us.wellnessliving.com/api/Wl/Client/ClientList.json",
+    "endpoint_path":"GET /Client/ClientList",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"WellnessLiving",
+    "endpoint_url":"https://us.wellnessliving.com/api/Wl/Staff/StaffList.json",
+    "endpoint_path":"GET /Staff/StaffList",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"WellnessLiving",
+    "endpoint_url":"https://us.wellnessliving.com/api/Wl/Location/LocationList.json",
+    "endpoint_path":"GET /Location/LocationList",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"WellnessLiving",
+    "endpoint_url":"https://us.wellnessliving.com/api/Wl/Schedule/ScheduleList.json",
+    "endpoint_path":"GET /Schedule/ScheduleList",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"WellnessLiving",
+    "endpoint_url":"https://us.wellnessliving.com/api/Wl/Appointment/AppointmentList.json",
+    "endpoint_path":"GET /Appointment/AppointmentList",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"WellnessLiving",
+    "endpoint_url":"https://us.wellnessliving.com/api/Wl/Member/MemberList.json",
+    "endpoint_path":"GET /Member/MemberList",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"WellnessLiving",
+    "endpoint_url":"https://us.wellnessliving.com/api/Wl/Business/BusinessList.json",
+    "endpoint_path":"GET /Business/BusinessList",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"WellnessLiving",
+    "endpoint_url":"https://us.wellnessliving.com/api/Wl/Report/ReportList.json",
+    "endpoint_path":"GET /Report/ReportList",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"WellnessLiving",
+    "endpoint_url":"https://us.wellnessliving.com/api/Wl/Purchase/PurchaseList.json",
+    "endpoint_path":"GET /Purchase/PurchaseList",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Wodify",
+    "endpoint_url":"https://api.wodify.com/v1/members",
+    "endpoint_path":"GET /members",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Wodify",
+    "endpoint_url":"https://api.wodify.com/v1/classes",
+    "endpoint_path":"GET /classes",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Wodify",
+    "endpoint_url":"https://api.wodify.com/v1/locations",
+    "endpoint_path":"GET /locations",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Wodify",
+    "endpoint_url":"https://api.wodify.com/v1/programs",
+    "endpoint_path":"GET /programs",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Wodify",
+    "endpoint_url":"https://api.wodify.com/v1/workouts",
+    "endpoint_path":"GET /workouts",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Wodify",
+    "endpoint_url":"https://api.wodify.com/v1/athletes",
+    "endpoint_path":"GET /athletes",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Wodify",
+    "endpoint_url":"https://api.wodify.com/v1/results",
+    "endpoint_path":"GET /results",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Wodify",
+    "endpoint_url":"https://api.wodify.com/v1/reservations",
+    "endpoint_path":"GET /reservations",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Wodify",
+    "endpoint_url":"https://api.wodify.com/v1/memberships",
+    "endpoint_path":"GET /memberships",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Wodify",
+    "endpoint_url":"https://api.wodify.com/v1/billing",
+    "endpoint_path":"GET /billing",
+    "http_status":"403",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"Zen Planner",
+    "endpoint_url":"https://zenplanner.com/api/v1/classes",
+    "endpoint_path":"Classes",
+    "http_status":"000",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Zen Planner",
+    "endpoint_url":"https://zenplanner.com/api/v1/members",
+    "endpoint_path":"Members",
+    "http_status":"000",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Zen Planner",
+    "endpoint_url":"https://zenplanner.com/api/v1/programs",
+    "endpoint_path":"Programs",
+    "http_status":"200",
+    "security_rating":"PARTIAL - Limited Data",
+    "data_types_exposed":"HTML web page content was returned instead of a structured API response. No specific data types were exposed.",
+    "test_round":"round_2",
+    "is_public":true
+  },
+  {
+    "platform":"Zen Planner",
+    "endpoint_url":"https://zenplanner.com/api/v1/workouts",
+    "endpoint_path":"Workouts",
+    "http_status":"301",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"Zen Planner",
+    "endpoint_url":"https://zenplanner.com/api/v1/attendance",
+    "endpoint_path":"Attendance",
+    "http_status":"000",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"None",
+    "test_round":"round_2",
+    "is_public":false
+  },
+  {
+    "platform":"ZenPlanner",
+    "endpoint_url":"https://api.zenplanner.com/v1/classes",
+    "endpoint_path":"GET /classes",
+    "http_status":"404",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"ZenPlanner",
+    "endpoint_url":"https://api.zenplanner.com/v1/members",
+    "endpoint_path":"GET /members",
+    "http_status":"404",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"ZenPlanner",
+    "endpoint_url":"https://api.zenplanner.com/v1/locations",
+    "endpoint_path":"GET /locations",
+    "http_status":"404",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"ZenPlanner",
+    "endpoint_url":"https://api.zenplanner.com/v1/programs",
+    "endpoint_path":"GET /programs",
+    "http_status":"404",
+    "security_rating":"SECURE - Auth Required",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"ZenPlanner",
+    "endpoint_url":"https://api.zenplanner.com/v1/prospects",
+    "endpoint_path":"GET /prospects",
+    "http_status":"404",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"ZenPlanner",
+    "endpoint_url":"https://api.zenplanner.com/v1/memberships",
+    "endpoint_path":"GET /memberships",
+    "http_status":"404",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"ZenPlanner",
+    "endpoint_url":"https://api.zenplanner.com/v1/events",
+    "endpoint_path":"GET /events",
+    "http_status":"404",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"ZenPlanner",
+    "endpoint_url":"https://api.zenplanner.com/v1/people",
+    "endpoint_path":"GET /people",
+    "http_status":"404",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"ZenPlanner",
+    "endpoint_url":"https://api.zenplanner.com/v1/groups",
+    "endpoint_path":"GET /groups",
+    "http_status":"404",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  },
+  {
+    "platform":"ZenPlanner",
+    "endpoint_url":"https://api.zenplanner.com/v1/financial",
+    "endpoint_path":"GET /financial",
+    "http_status":"404",
+    "security_rating":"UNKNOWN - Connection Failed",
+    "data_types_exposed":"",
+    "test_round":"round_1",
+    "is_public":false
+  }
+]
